@@ -1,4 +1,4 @@
-#TopModel a Rails 4 compatible in-memory database using ActiveModel 
+#TopModel is a Rails 4 compatible In-Memory Object-Relational mapper using ActiveModel
 **This gem is based on topmodel by Alex Maccaw (maccman). It includes some fixes and is updated to be compatible with Rails 4.**
 
 

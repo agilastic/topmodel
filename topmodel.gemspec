@@ -5,13 +5,15 @@
 
 Gem::Specification.new do |s|
   s.name = %q{topmodel}
-  s.version = "0.2"
+  s.version = "0.2.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Alex MacCaw", "Alex Ebeling-Hoppe"]
+  s.authors = ["Alex Ebeling-Hoppe", "Alex MacCaw", "Jai-gouk Kim", "Mateusz D", "Denis Tierno"]
   s.date = %q{2014-04-03}
-  s.description = %q{In memory DB using ActiveModel}
-  s.email = %q{info@eribium.org}
+  s.licenses    = ['MIT']
+  s.description = %q{TopModel is a Rails 4 compatible In-Memory Object-Relational mapper using ActiveModel}
+  s.homepage    = %q{https://github.com/agilastic/topmodel}
+  s.email = %q{ebeling-hoppe@agilastic.de}
   s.extra_rdoc_files = [
     "README.md"
   ]
@@ -41,7 +43,7 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
-  s.summary = %q{In memory DB using ActiveModel}
+  s.summary = %q{TopModel is a Rails 4 compatible In-Memory Object-Relational mapper using ActiveModel}
 
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION

@@ -22,7 +22,7 @@ module TopModel
       end
       
       def redis
-        @redis ||= ::Redis.connect(redis_options)
+        @redis ||= ::Redis.new(redis_options)
       end
       
       def indexes(*indexes)
