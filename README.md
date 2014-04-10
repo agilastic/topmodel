@@ -1,5 +1,5 @@
 ##TopModel 
-**TopModel is a Rails 4 compatible in-memory database and OR-Mapper based on ActiveModel. It is based on supermodel by Alex Maccaw (maccman). TopModel includes some fixes and is updated to be compatible with Rails 4.**
+**TopModel is a Rails 4 compatible in-memory database with O/R mapping based on ActiveModel. It is originally developed by Alex Maccaw (maccman) and named "supermodel". Unfortunately the development of supermodel has stopped and actually it is incompatible with Rails 4. So TopModel fixes this and is updated to be compatible with Rails 4.**
 
 
 **Primarily developed for Bowline applications.
