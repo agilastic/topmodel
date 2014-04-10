@@ -1,4 +1,5 @@
 dump.db
+.gitconfig
 redis_test.rb
 pkg
 lib/supermodel/cassandra.rb
