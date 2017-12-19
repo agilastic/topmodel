@@ -3,22 +3,29 @@ module TopModel
     extend ActiveSupport::Concern
     include ActiveModel::Dirty
 
-    included do
-      %w( create update ).each do |method|
-        class_eval(<<-EOS, __FILE__, __LINE__ + 1)
-          def #{method}_with_dirty(*args, &block)
-            result = #{method}_without_dirty(*args, &block)
-            save_previous_changes
-            result
-          end
-        EOS
-        alias_method_chain(method, :dirty)
+    module ClassMethods
+      def create(*args, &block)
+        result = super(*args, &block)
+        save_previous_changes
+        result
+      end
+
+      def update(*args, &block)
+        result = super(*args, &block)
+        save_previous_changes
+        result
       end
     end
-        
-    def save_previous_changes
-      @previously_changed = changes
-      @changed_attributes.clear
+
+    included do
+      class_eval do
+        prepend ClassMethods
+
+        def save_previous_changes
+          @previously_changed = changes
+          @changed_attributes.clear
+        end
+      end
     end
   end
 end
