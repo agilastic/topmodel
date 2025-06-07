@@ -1,5 +1,31 @@
 module TopModel
   module Callbacks
+    module ClassMethods
+      def create
+        run_callbacks :create do
+          super
+        end
+      end
+
+      def save
+        run_callbacks :save do
+          super
+        end
+      end
+
+      def update
+        run_callbacks :update do
+          super
+        end
+      end
+
+      def destroy
+        run_callbacks :destroy do
+          super
+        end
+      end
+    end
+
     extend ActiveSupport::Concern
 
     included do
@@ -8,41 +34,9 @@ module TopModel
         define_model_callbacks :create, :save, :update, :destroy
       end
 
-      # Callback Fixes https://raw.githubusercontent.com/locomotivapro/topmodel/33d952c5082245465f9f063a55a743b88df7558d/lib/topmodel/callbacks.rb
-      class_eval(<<-EOS, __FILE__, __LINE__ + 1)
-        def create_with_callbacks(*args, &block)
-          run_callbacks :create do
-            # Your create action methods here
-            create_without_callbacks(*args, &block)
-          end
-        end
-        alias_method_chain(:create, :callbacks)
-
-        def save_with_callbacks(*args, &block)
-          run_callbacks :save do
-            # Your save action methods here
-            save_without_callbacks(*args, &block)
-          end
-        end
-        alias_method_chain(:save, :callbacks)
-
-        def update_with_callbacks(*args, &block)
-          run_callbacks :update do
-            # Your update action methods here
-            update_without_callbacks(*args, &block)
-          end
-        end
-        alias_method_chain(:update, :callbacks)
-
-        def destroy_with_callbacks(*args, &block)
-          run_callbacks :destroy do
-            # Your destroy action methods here
-            destroy_without_callbacks(*args, &block)
-          end
-        end
-        alias_method_chain(:destroy, :callbacks)
-      EOS
-      
+      class_eval do
+        prepend TopModel::Callbacks::ClassMethods
+      end
     end
   end
 end
